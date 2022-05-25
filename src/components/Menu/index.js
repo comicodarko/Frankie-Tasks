@@ -1,10 +1,10 @@
 import MenuItem from './MenuItem';
 import { MenuWrapper } from './styles';
 
-import DashboardIcon from '../../assets/dashboard.png';
-import DashboardActiveIcon from '../../assets/dashboard-active.png';
-import SettingsIcon from '../../assets/configuration.png';
-import SettingsActiveIcon from '../../assets/configuration-active.png';
+import DashboardIcon from '../../assets/menu-icons/dashboard.png';
+import DashboardActiveIcon from '../../assets/menu-icons/dashboard-active.png';
+import SettingsIcon from '../../assets/menu-icons/configuration.png';
+import SettingsActiveIcon from '../../assets/menu-icons/configuration-active.png';
 
 export default function Menu({ selectedMenu, setSelectedMenu }) {
   function handleChangeMenu(selected) {

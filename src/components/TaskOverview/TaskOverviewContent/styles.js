@@ -4,7 +4,7 @@ export const TaskOverviewWrapper = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  background: var(--purple);
+  background: var(--blueDark);
   padding: 1rem;
   border-radius: 1.5rem;
   margin: 1rem;
@@ -15,20 +15,30 @@ export const TaskOverviewWrapper = styled.div`
 
     > span {
       padding: 0.5rem;
-      border: 2px solid var(--gray);
+      border: 2px solid var(--black);
       border-radius: 1rem;
       margin-right: 1rem;
 
       svg {
-        fill: var(--red);
+        fill: var(--pink);
       }
     }
 
     span.type {
-      color: var(--red);
+      color: var(--pink);
       font-weight: bold;
       font-size: 0.8rem;
-      line-height: 0.3rem;
+      display: flex;
+      margin-top: -3px;
+    }
+  }
+
+  section.progress {
+    width: 3.5rem;
+
+    span {
+      font-weight: bold;
+      font-size: 0.9rem;
     }
   }
 `;

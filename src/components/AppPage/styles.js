@@ -9,6 +9,4 @@ export const AppWrapper = styled.main`
   margin-top: 3vh;
   margin-bottom: 3vh;
   border-radius: 2.2rem;
-  align-items: center;
-  /* padding: 1rem; */
 `;

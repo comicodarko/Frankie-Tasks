@@ -1,9 +1,11 @@
 import { useState } from 'react';
+
 import { AppWrapper } from './styles';
+import { MainContent } from '../Defaults';
 import Menu from '../Menu';
+import Header from '../Header';
 import TodayTasks from '../TodayTasks';
 import TaskOverview from '../TaskOverview';
-import { MainContent } from '../Defaults';
 
 export default function AppPage() {
   const [selectedMenu, setSelectedMenu] = useState('Dashboard');
@@ -11,7 +13,9 @@ export default function AppPage() {
   return (
     <AppWrapper>
       <Menu selectedMenu={selectedMenu} setSelectedMenu={setSelectedMenu} />
+
       <MainContent>
+        <Header label={selectedMenu} />
         <TaskOverview completed={10} inProgress={3} />
 
         <TodayTasks />
