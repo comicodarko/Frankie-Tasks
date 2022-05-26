@@ -2,7 +2,8 @@ import { TaskOverviewWrapper } from './styles';
 import { CircularProgressbarWithChildren, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 
-export default function TaskOverviewContent({ amount, label, Icon }) {
+export default function TaskOverviewContent({ amount, all, label, Icon }) {
+  const percent = parseInt((amount / all) * 100);
   return (
     <TaskOverviewWrapper>
       <section>
@@ -16,13 +17,14 @@ export default function TaskOverviewContent({ amount, label, Icon }) {
       </section>
       <section className="progress">
         <CircularProgressbarWithChildren
-          value={100}
+          value={amount}
+          maxValue={all}
           styles={buildStyles({
             pathColor: '#ff80bf'
           })}
           strokeWidth={10}
         >
-          <span>100%</span>
+          <span>{percent}%</span>
         </CircularProgressbarWithChildren>
       </section>
     </TaskOverviewWrapper>
