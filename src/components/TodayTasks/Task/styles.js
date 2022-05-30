@@ -21,12 +21,15 @@ export const TaskWrapper = styled.span`
 
     h3 {
       font-size: 1rem;
+      color: ${props => (props.checked ? 'var(--gray)' : 'var(--white)')};
+      text-decoration: ${props =>
+        props.checked ? 'line-through var(--gray) 3px' : 'none'};
     }
 
     h4 {
       margin-top: 0.2rem;
       font-size: 0.7rem;
-      color: var(--pink);
+      color: ${props => (props.checked ? 'var(--gray)' : 'var(--pink)')};
     }
 
     img {
@@ -36,6 +39,7 @@ export const TaskWrapper = styled.span`
       margin-right: 1rem;
       width: 50px;
       height: 50px;
+      filter: ${props => (props.checked ? 'grayscale(100%)' : 'none')};
     }
   }
 `;

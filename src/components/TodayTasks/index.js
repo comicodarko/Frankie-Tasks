@@ -29,13 +29,14 @@ export default function TodayTasks() {
   }
 
   function handleChange() {
-    if (statusToShow === 'unchecked') {
-      setSelectedTasks(uncheckedTasks);
-    } else if (statusToShow === 'checked') {
-      setSelectedTasks(checkedTasks);
-    } else {
-      setSelectedTasks(tasks);
-    }
+    const selected =
+      statusToShow === 'unchecked'
+        ? uncheckedTasks
+        : statusToShow === 'checked'
+        ? checkedTasks
+        : tasks;
+
+    setSelectedTasks(selected.sort(task => task.checked));
   }
 
   useEffect(() => {

@@ -2,11 +2,15 @@ import { TaskWrapper } from './styles';
 
 export default function Task({ id, icon, label, category, checked, handleChecked }) {
   return (
-    <TaskWrapper onClick={() => handleChecked(id)}>
+    <TaskWrapper
+      className="animationRight"
+      onClick={() => handleChecked(id)}
+      checked={checked}
+    >
       <div>
         <img src={icon} alt={category} />
         <div>
-          <h3>{label}</h3>
+          <h3>- {label} -</h3>
           <h4>{category}</h4>
         </div>
       </div>

@@ -27,6 +27,7 @@ export const TodayTasksWrapper = styled.section`
   main {
     height: 100%;
     overflow-y: auto;
+    overflow-x: hidden;
   }
 `;
 
