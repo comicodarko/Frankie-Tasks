@@ -1,11 +1,15 @@
-import { TaskOverviewWrapper } from './styles';
-import { CircularProgressbarWithChildren, buildStyles } from 'react-circular-progressbar';
+import { useContext } from 'react';
 import 'react-circular-progressbar/dist/styles.css';
+import { CircularProgressbarWithChildren, buildStyles } from 'react-circular-progressbar';
 
-export default function TaskOverviewContent({ amount, all, label, Icon }) {
-  const percent = parseInt((amount / all) * 100);
+import { GlobalContext } from '../../../Context';
+import { TaskOverviewWrapper } from './styles';
+
+export default function TaskOverviewContent({ amount, all, label, Icon, type }) {
+  const percent = amount ? parseInt((amount / all) * 100) : '--';
+  const { setStatusToShow } = useContext(GlobalContext);
   return (
-    <TaskOverviewWrapper>
+    <TaskOverviewWrapper onClick={() => setStatusToShow(type)}>
       <section>
         <span>
           <Icon />

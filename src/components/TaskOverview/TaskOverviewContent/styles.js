@@ -8,6 +8,7 @@ export const TaskOverviewWrapper = styled.div`
   padding: 1rem;
   border-radius: 1.5rem;
   margin: 1rem;
+  cursor: pointer;
 
   section {
     display: flex;
