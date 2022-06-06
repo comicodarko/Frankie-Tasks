@@ -54,7 +54,9 @@ export default function TodayTasks() {
   return (
     <TodayTasksWrapper>
       <TodayTaskHeader>
-        <h2>Tasks</h2>
+        <h2>Tasks {statusToShow === 'unchecked'
+        ? 'a serem feitas'
+        : statusToShow === 'checked' && 'concluídas'} </h2>
         <More />
       </TodayTaskHeader>
       <main>

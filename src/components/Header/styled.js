@@ -5,12 +5,13 @@ export const HeaderWrapper = styled.div`
   align-items: center;
   justify-content: space-between;
   margin: 1rem;
+  height: 3rem;
 
   h1 {
     font-size: 2rem;
   }
 
-  div {
+  > div {
     display: flex;
     align-items: center;
     justify-content: center;

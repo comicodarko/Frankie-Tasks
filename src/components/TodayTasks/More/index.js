@@ -1,8 +1,5 @@
 import { useContext } from 'react';
-import {
-  MoreHorizontalOutline,
-  MoreVerticalOutline
-} from '@styled-icons/evaicons-outline';
+import { DotsHorizontalRounded } from '@styled-icons/boxicons-regular';
 
 import MoreOption from '../MoreOption';
 import { Tooltip } from './styled';
@@ -14,11 +11,7 @@ export default function More() {
   return (
     <Tooltip>
       <div className="contentWrapper">
-        <MoreOption
-          label="Todos"
-          checked={statusToShow === 'all'}
-          setCheck={setStatusToShow}
-        />
+        <MoreOption label="Todos" checked={statusToShow === 'all'} setCheck={setStatusToShow} />
         <MoreOption
           label="Não concluídos"
           checked={statusToShow === 'unchecked'}
@@ -31,7 +24,7 @@ export default function More() {
         />
         <span className="marker" />
       </div>
-      <MoreHorizontalOutline className="moreIcon" size={35} />
+      <DotsHorizontalRounded className="moreIcon" size={35} />
     </Tooltip>
   );
 }

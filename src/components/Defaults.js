@@ -10,7 +10,7 @@ export const MainContent = styled.section`
   }
 
   button:hover {
-    filter: brightness(1.2);
+    background: var(--pink);
   }
 `;
 

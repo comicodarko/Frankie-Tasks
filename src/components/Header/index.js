@@ -1,21 +1,31 @@
+import { useEffect, useState } from 'react';
+import { TaskListSquareAdd } from '@styled-icons/fluentui-system-filled';
+
 import { HeaderWrapper } from './styled';
 import { Button } from '../Defaults';
-import { TaskListSquareAdd } from '@styled-icons/fluentui-system-filled';
-import { NotificationsCircle } from '@styled-icons/ionicons-sharp';
+import NewTask from './NewTask';
 
 export default function Header({ label }) {
+  const [show, setShow] = useState(false);
+
+  useEffect(() => {
+    document.addEventListener('keydown', event => {
+      event.key === 'Escape' && setShow(false);
+    });
+  }, []);
+
   return (
     <HeaderWrapper>
       <h1>{label}</h1>
-
-      <div>
-        <Button>
-          <TaskListSquareAdd size={25} /> Nova Task
-        </Button>
-        <button className="notifications">
-          <NotificationsCircle size={45} />
-        </button>
-      </div>
+      {show ? (
+        <NewTask />
+      ) : (
+        <div>
+          <Button onClick={() => setShow(true)}>
+            <TaskListSquareAdd size={25} /> Nova Task
+          </Button>
+        </div>
+      )}
     </HeaderWrapper>
   );
 }

@@ -47,12 +47,11 @@ export const GlobalStyle = createGlobalStyle`
     background-color: #111;
   }
 
-  input {
-    padding: 10px;
+  input, select {
+    padding: 5px;
     display: flex;
     min-width: 20%;
     max-width: 80%;
-    margin: 20px auto;
     border: 3px solid var(--purple);
     border-radius: 5px;
     outline: none;

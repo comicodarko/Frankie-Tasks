@@ -7,11 +7,6 @@ import SettingsIcon from '../../assets/menu-icons/configuration.png';
 import SettingsActiveIcon from '../../assets/menu-icons/configuration-active.png';
 
 export default function Menu({ selectedMenu, setSelectedMenu }) {
-  function handleChangeMenu(selected) {
-    setSelectedMenu(selected);
-    console.log(selected);
-  }
-
   return (
     <MenuWrapper className="animationLeft">
       <h1>
@@ -24,14 +19,14 @@ export default function Menu({ selectedMenu, setSelectedMenu }) {
           activeIcon={DashboardActiveIcon}
           label="Dashboard"
           active={selectedMenu === 'Dashboard'}
-          handleChangeMenu={() => handleChangeMenu('Dashboard')}
+          handleChangeMenu={() => setSelectedMenu('Dashboard')}
         />
         <MenuItem
           icon={SettingsIcon}
           activeIcon={SettingsActiveIcon}
           label="Configuração"
           active={selectedMenu === 'Settings'}
-          handleChangeMenu={() => handleChangeMenu('Settings')}
+          handleChangeMenu={() => setSelectedMenu('Settings')}
         />
       </nav>
 

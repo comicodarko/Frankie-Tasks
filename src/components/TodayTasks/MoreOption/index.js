@@ -2,9 +2,9 @@ import { MoreOptionWrapper } from './styled';
 
 export default function MoreOption({ label, checked, setCheck }) {
   const value = {
-    ['Todos']: 'all',
+    Todos: 'all',
     'Não concluídos': 'unchecked',
-    ['Concluídos']: 'checked'
+    Concluídos: 'checked'
   };
 
   return (
