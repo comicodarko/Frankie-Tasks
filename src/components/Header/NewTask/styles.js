@@ -8,13 +8,18 @@ export const NewTaskWrapper = styled.div`
   display: flex;
   margin-left: 1rem;
   border-radius: 0.5rem;
-  padding: 0 5px;
-  border-right: 0;
-
+  padding: 10px;
+  
   > input {
     border-right-width: 0;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
+    border-right: 3px solid var(--purple);
+    flex: 1;
+
+    &:hover, &:focus{
+      border-color: var(--purple);
+    }
   }
 
   > button {
@@ -23,7 +28,9 @@ export const NewTaskWrapper = styled.div`
     border-bottom-left-radius: 0;
     background: var(--pink);
     width: 5rem;
-    height: 2.375rem;
+    min-height: 2.375rem;
+    border: 3px solid var(--purple);
+    border-left: 0;
     background: var(--purple);
   }
 `;
@@ -40,17 +47,13 @@ export const CustomSelect = styled(Select)`
   div.option {
     display: flex;
     align-items: center;
-    /* background: var(--black); */
     width: 100%;
     transition: 0.2s;
+    cursor: pointer;
 
     span {
-      color: var(--black)
+      color: var(--black);
     }
-  }
-
-  &:hover, &:focus {
-    border-color: var(--pink); 
   }
 
   img {

@@ -1,5 +1,5 @@
 import { useState, createContext, useEffect } from 'react';
-import { getCategories } from './service/api';
+import { getCategories, getTasks } from './service/api';
 
 export const GlobalContext = createContext({});
 
@@ -11,9 +11,23 @@ export default function GlobalProvider({ children }) {
   const [statusToShow, setStatusToShow] = useState('');
 
   useEffect(() => {
-    getCategories().then(result => setCategories(result)); 
-    const tasks = localStorage.getItem('tasks');
-    tasks && setTasks(JSON.parse(tasks));
+    getCategories().then(categoriesResult => {
+      setCategories(categoriesResult);
+      getTasks().then(tasksResult => {
+        const tasks = tasksResult.map(task => {
+          const category = categoriesResult.find(category => category.id === task.attributes.category); 
+          return {
+            id: task.id,
+            label: task.attributes.label,
+            checked: task.attributes.checked,
+            createdAt: task.attributes.createdAt,
+            category
+          }
+        })
+        setTasks(tasks);
+      })
+    }); 
+
     setStatusToShow('unchecked');
   }, []);
 

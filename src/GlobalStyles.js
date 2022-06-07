@@ -56,12 +56,11 @@ export const GlobalStyle = createGlobalStyle`
     border-radius: 5px;
     outline: none;
     color: var(--black);
-    text-align: center;
     font-size: 1.1rem;
 
     &:active, &:hover, &:focus {
       transition: 1s;
-      border: 3px solid var(--pink);  
+      border-color: var(--pink);  
     }
   }
 

@@ -6,25 +6,23 @@ import { Button } from '../Defaults';
 import NewTask from './NewTask';
 
 export default function Header({ label }) {
-  const [show, setShow] = useState(false);
+  const [showNewTask, setShowNewTask] = useState(false);
 
   useEffect(() => {
     document.addEventListener('keydown', event => {
-      event.key === 'Escape' && setShow(false);
+      event.key === 'Escape' && setShowNewTask(false);
     });
   }, []);
 
   return (
     <HeaderWrapper>
       <h1>{label}</h1>
-      {show ? (
-        <NewTask />
+      {showNewTask ? (
+        <NewTask setShowNewTask={setShowNewTask} />
       ) : (
-        <div>
-          <Button onClick={() => setShow(true)}>
+          <Button className="animationRight" onClick={() => setShowNewTask(true)}>
             <TaskListSquareAdd size={25} /> Nova Task
           </Button>
-        </div>
       )}
     </HeaderWrapper>
   );
