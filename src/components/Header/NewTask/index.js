@@ -36,11 +36,9 @@ export default function NewTask({setShowNewTask}) {
 
   function handleNewTask() {
     if(text && category) {
-      setText('');
-      setCategory('');
+      setShowNewTask(false);
       newTask(text, category.value).then(response => {
         if(response.status === 200) {
-          setShowNewTask(false);
 
           const { data } = response.data;
           const category = categories.find(category => category.id === data.attributes.category);

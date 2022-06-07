@@ -1,6 +1,7 @@
+import { baseUrl } from '../../../service/api';
 import { TaskWrapper } from './styles';
 
-export default function Task({ id, icon, label, category, checked, handleChecked }) {
+export default function Task({ id, label, category, checked, handleChecked }) {
   return (
     <TaskWrapper
       className="animationRight"
@@ -8,10 +9,10 @@ export default function Task({ id, icon, label, category, checked, handleChecked
       checked={checked}
     >
       <div>
-        <img src={icon} alt={category} />
+        <img src={`${baseUrl}${category.icon}`} alt={category.label} />
         <div>
           <h3>- {label} -</h3>
-          <h4>{category}</h4>
+          <h4>{category.label}</h4>
         </div>
       </div>
 

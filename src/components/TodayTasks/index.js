@@ -4,28 +4,24 @@ import Task from './Task';
 import More from './More';
 import { TodayTaskHeader, TodayTasksWrapper } from './styles';
 import { GlobalContext } from '../../Context';
-
-import IconCode from '../../assets/category-icons/code.png';
-import IconSocial from '../../assets/category-icons/social.png';
-import IconStudy from '../../assets/category-icons/study.png';
-import IconWork from '../../assets/category-icons/work.png';
+import { updateTask } from '../../service/api';
 
 export default function TodayTasks() {
   const { tasks, setTasks, checkedTasks, uncheckedTasks, statusToShow } =
     useContext(GlobalContext);
   const [selectedTasks, setSelectedTasks] = useState(uncheckedTasks);
-  const icons = {
-    Programação: IconCode,
-    Social: IconSocial,
-    Estudos: IconStudy,
-    Trabalho: IconWork
-  };
 
-  function toggleTask(taskId) {
-    const tasksArray = [...tasks];
-    let taskIndex = tasksArray.findIndex(task => task.id === taskId);
-    tasksArray[taskIndex].checked = !tasksArray[taskIndex].checked;
-    setTasks(tasksArray);
+  function toggleTask(taskId, status) {
+    updateTask(taskId, status).then(success => {
+      if(success) {
+        const tasksArray = [...tasks];
+        let taskIndex = tasksArray.findIndex(task => task.id === taskId);
+        tasksArray[taskIndex].checked = !tasksArray[taskIndex].checked;
+        setTasks(tasksArray);
+      } else {
+        alert('Falha ao editar Task');
+      }
+    })
   }
 
   function handleChange() {
@@ -65,11 +61,10 @@ export default function TodayTasks() {
             <Task
               key={task.id}
               id={task.id}
-              icon={icons[task.category]}
               label={task.label}
               category={task.category}
               checked={task.checked}
-              handleChecked={toggleTask}
+              handleChecked={() => toggleTask(task.id, !task.checked)}
             />
           );
         })}
