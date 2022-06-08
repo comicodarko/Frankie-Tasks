@@ -7,7 +7,7 @@ export const TaskOverviewWrapper = styled.div`
   background: var(--blueDark);
   padding: 1rem;
   border-radius: 1.5rem;
-  margin: 1rem;
+  margin: 0.5rem 1rem;
   cursor: pointer;
 
   section {
@@ -19,6 +19,10 @@ export const TaskOverviewWrapper = styled.div`
       border: 2px solid var(--black);
       border-radius: 1rem;
       margin-right: 1rem;
+
+      @media(max-width: 800px) {
+        margin-right: 0.5rem;
+      }
 
       svg {
         fill: var(--pink);

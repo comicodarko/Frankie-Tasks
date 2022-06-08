@@ -1,12 +1,12 @@
 import { Task, TaskX } from '@styled-icons/boxicons-regular';
 
-import { RowBetween } from '../Defaults';
+import { TaskOverviewContainer } from './styles';
 import TaskOverviewContent from './TaskOverviewContent';
 
 export default function TaskOverview({ completed, inProgress }) {
   const all = completed + inProgress;
   return (
-    <RowBetween>
+    <TaskOverviewContainer>
       <TaskOverviewContent
         amount={completed}
         all={all}
@@ -21,6 +21,6 @@ export default function TaskOverview({ completed, inProgress }) {
         Icon={() => <TaskX size={30} />}
         type="unchecked"
       />
-    </RowBetween>
+    </TaskOverviewContainer>
   );
 }

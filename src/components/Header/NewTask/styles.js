@@ -9,6 +9,10 @@ export const NewTaskWrapper = styled.div`
   margin-left: 1rem;
   border-radius: 0.5rem;
   padding: 10px;
+
+  @media(max-width: 700px) {
+    margin-left: 0;
+  }
   
   > input {
     border-right-width: 0;
@@ -32,6 +36,10 @@ export const NewTaskWrapper = styled.div`
     border: 3px solid var(--purple);
     border-left: 0;
     background: var(--purple);
+
+    @media(max-width: 700px) {
+      width: 3rem;
+    }
   }
 `;
 
@@ -39,6 +47,10 @@ export const CustomSelect = styled(Select)`
   border-top: 3px solid var(--purple);
   border-bottom: 3px solid var(--purple);
   width: 30%;
+
+  @media(max-width: 700px) {
+    width: 35%
+  }
 
   div {
     padding: 0.05rem;

@@ -7,6 +7,10 @@ export const MenuWrapper = styled.nav`
   padding: 1rem;
   margin: 1rem;
 
+  @media(max-width: 750px) {
+    display: none;
+  }
+
   h1 {
     font-weight: 400;
     color: var(--black);
