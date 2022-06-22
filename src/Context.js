@@ -9,25 +9,15 @@ export default function GlobalProvider({ children }) {
   const [checkedTasks, setCheckedTasks] = useState([]);
   const [uncheckedTasks, setUncheckedTasks] = useState([]);
   const [statusToShow, setStatusToShow] = useState('');
+  const [selectedMenu, setSelectedMenu] = useState('Dashboard');
+
+  async function fetchData() {
+    setCategories(await getCategories());
+    setTasks(await getTasks());
+  }
 
   useEffect(() => {
-    getCategories().then(categoriesResult => {
-      setCategories(categoriesResult);
-      getTasks().then(tasksResult => {
-        const tasks = tasksResult.map(task => {
-          const category = categoriesResult.find(category => category.id === task.attributes.category); 
-          return {
-            id: task.id,
-            label: task.attributes.label,
-            checked: task.attributes.checked,
-            createdAt: task.attributes.createdAt,
-            category
-          }
-        })
-        setTasks(tasks);
-      })
-    }); 
-
+    fetchData();
     setStatusToShow('unchecked');
   }, []);
 
@@ -42,9 +32,9 @@ export default function GlobalProvider({ children }) {
       value={{
         tasks, setTasks,
         statusToShow, setStatusToShow,
+        checkedTasks, uncheckedTasks,
+        selectedMenu, setSelectedMenu,
         categories,
-        checkedTasks,
-        uncheckedTasks,
       }}
     >
       {children}

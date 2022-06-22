@@ -20,6 +20,17 @@ export const RowBetween = styled.div`
   align-items: center;
 `;
 
+export const DefaultWrapper = styled.section`
+  padding: 1rem;
+  margin: 1rem;
+  flex: 1;
+  border-radius: 1.5rem;
+  background: var(--blueDark);
+  display: flex;
+  flex-direction: column;
+  overflow-y: hidden;
+`
+
 export const Button = styled.button`
   background-color: ${props => props.color || 'var(--pink)'};
   padding: 0.5rem;

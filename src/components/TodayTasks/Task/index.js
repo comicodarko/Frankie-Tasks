@@ -9,7 +9,7 @@ export default function Task({ id, label, category, checked, handleChecked }) {
       checked={checked}
     >
       <div>
-        <img src={`${baseUrl}${category.icon}`} alt={category.label} />
+        <img src={`${baseUrl}${category.iconPath}`} alt={category.label} />
         <div>
           <h3>- {label} -</h3>
           <h4>{category.label}</h4>

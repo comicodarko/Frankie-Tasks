@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
 export const MenuWrapper = styled.nav`
+  display: flex;
+  flex-direction: column;
   background: var(--white);
   height: calc(100% - 2rem);
   border-radius: 1.5rem;
@@ -13,28 +15,25 @@ export const MenuWrapper = styled.nav`
 
   h1 {
     font-weight: 400;
-    color: var(--black);
+    color: var(--blueDark);
 
     span {
       color: var(--pink);
     }
   }
 
-  nav {
-    margin: 4rem 0;
-  }
-
   footer {
-    color: var(--gray);
+    color: var(--blueDark);
     position: absolute;
     bottom: 1rem;
+    left: 0rem;
     width: 100%;
-    left: 50%;
     text-align: center;
-    transform: translate(-50%, -50%);
-    font-size: 0.9rem;
+    font-size: 0.8rem;
+    font-weight: 500;
     a {
-      color: var(--gray);
+      color: var(--pink);
+      
     }
   }
 `;

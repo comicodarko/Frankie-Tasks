@@ -6,7 +6,7 @@ import TaskOverviewContent from './TaskOverviewContent';
 export default function TaskOverview({ completed, inProgress }) {
   const all = completed + inProgress;
   return (
-    <TaskOverviewContainer>
+    <TaskOverviewContainer className='animationShow'>
       <TaskOverviewContent
         amount={completed}
         all={all}

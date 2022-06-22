@@ -1,12 +1,17 @@
+import { useContext } from 'react';
 import MenuItem from './MenuItem';
 import { MenuWrapper } from './styles';
+import { GlobalContext } from '../../Context';
 
 import DashboardIcon from '../../assets/menu-icons/dashboard.png';
 import DashboardActiveIcon from '../../assets/menu-icons/dashboard-active.png';
 import SettingsIcon from '../../assets/menu-icons/configuration.png';
 import SettingsActiveIcon from '../../assets/menu-icons/configuration-active.png';
+import Categories from './Categories';
 
-export default function Menu({ selectedMenu, setSelectedMenu }) {
+export default function Menu() {
+  const { selectedMenu, setSelectedMenu } = useContext(GlobalContext); 
+
   return (
     <MenuWrapper className="animationLeft">
       <h1>
@@ -30,8 +35,10 @@ export default function Menu({ selectedMenu, setSelectedMenu }) {
         />
       </nav>
 
+      <Categories />
+
       <footer>
-        Developer by <a href="https://github.com/comicodarko"> Cômico</a>
+        Developed by <a href="https://github.com/comicodarko"> Cômico</a>
       </footer>
     </MenuWrapper>
   );

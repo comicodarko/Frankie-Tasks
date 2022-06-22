@@ -7,23 +7,29 @@ import Header from '../Header';
 import TodayTasks from '../TodayTasks';
 import TaskOverview from '../TaskOverview';
 import { GlobalContext } from '../../Context';
+import Settings from '../Settings';
 
 export default function AppPage() {
-  const [selectedMenu, setSelectedMenu] = useState('Dashboard');
-  const { checkedTasks, uncheckedTasks } = useContext(GlobalContext);
+  const { checkedTasks, uncheckedTasks, selectedMenu } = useContext(GlobalContext);
 
   return (
     <AppWrapper>
-      <Menu selectedMenu={selectedMenu} setSelectedMenu={setSelectedMenu} />
+      <Menu />
 
       <MainContent>
-        <Header label={selectedMenu} />
-        <TaskOverview
-          completed={checkedTasks.length}
-          inProgress={uncheckedTasks.length}
-        />
+        <Header />
+        {selectedMenu === 'Settings'
+          ? <Settings />
+          : 
+          <>
+            <TaskOverview
+              completed={checkedTasks.length}
+              inProgress={uncheckedTasks.length}
+            />
 
-        <TodayTasks />
+            <TodayTasks />
+          </>
+        }
       </MainContent>
     </AppWrapper>
   );

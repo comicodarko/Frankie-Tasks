@@ -1,12 +1,14 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { TaskListSquareAdd } from '@styled-icons/fluentui-system-filled';
 
+import { GlobalContext } from '../../Context';
 import { HeaderWrapper } from './styled';
 import { Button } from '../Defaults';
 import NewTask from './NewTask';
 
-export default function Header({ label }) {
+export default function Header() {
   const [showNewTask, setShowNewTask] = useState(false);
+  const { selectedMenu } = useContext(GlobalContext);
 
   useEffect(() => {
     document.addEventListener('keydown', event => {
@@ -16,7 +18,7 @@ export default function Header({ label }) {
 
   return (
     <HeaderWrapper>
-      <h1>{label}</h1>
+      <h1>{selectedMenu}</h1>
       {showNewTask ? (
         <NewTask setShowNewTask={setShowNewTask} />
       ) : (

@@ -37,21 +37,10 @@ export default function NewTask({setShowNewTask}) {
   function handleNewTask() {
     if(text && category) {
       setShowNewTask(false);
-      newTask(text, category.value).then(response => {
-        if(response.status === 200) {
-
-          const { data } = response.data;
-          const category = categories.find(category => category.id === data.attributes.category);
-          setTasks(old => [...old, {
-            id: data.id,
-            label: data.attributes.label,
-            checked: data.attributes.checked,
-            createdAt: data.attributes.createdAt,
-            category
-          }])
-        } else {
-          alert('Erro ao criar nova task');
-        }
+      newTask(text, category).then(response => {
+        const { data } = response;
+        console.log(data);
+        setTasks(old => [...old, data]);
       });
     }
   }
@@ -74,7 +63,7 @@ export default function NewTask({setShowNewTask}) {
         onChange={setCategory}
         getOptionLabel={option => (
           <div className='option'>
-            <img src={`${baseUrl}${option.icon}`} alt={option.label} />
+            <img src={`${baseUrl}${option.iconPath}`} alt={option.label} />
             <span>{option.label}</span>
           </div>
         )}
