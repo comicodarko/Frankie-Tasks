@@ -34,7 +34,7 @@ export default function GlobalProvider({ children }) {
         statusToShow, setStatusToShow,
         checkedTasks, uncheckedTasks,
         selectedMenu, setSelectedMenu,
-        categories,
+        categories, setCategories
       }}
     >
       {children}

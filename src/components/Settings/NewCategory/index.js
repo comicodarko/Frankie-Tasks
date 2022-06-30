@@ -4,12 +4,14 @@ import { CustomSelect, NewTaskWrapper } from './styles';
 import { AddToQueue } from '@styled-icons/boxicons-regular';
 
 import { GlobalContext } from '../../../Context';
-import { baseUrl, newTask } from '../../../service/api';
+import { baseUrl, newCategory } from '../../../service/api';
 
-export default function NewTask({setShowNewTask}) {
-  const { categories, tasks, setTasks } = useContext(GlobalContext);
-  const [text, setText] = useState('');
-  const [category, setCategory] = useState('');
+export default function NewCategory({iconPaths, setShowNewCategory}) {
+  const { setCategories } = useContext(GlobalContext);
+  const [label, setLabel] = useState('');
+  const [iconPath, setIconPath] = useState({});
+  const icons = iconPaths.map(path => ({value: path}));
+ 
   const customStyles = { 
     control: (base, state) => ({
       ...base,
@@ -17,7 +19,7 @@ export default function NewTask({setShowNewTask}) {
       boxShadow: 'none',
       borderRadius: 0,
       height: '2em',
-      minHeight: '2rem',
+      minHeight: '2.1rem',
     }),
     dropdownIndicator: () => ({
       'svg': {
@@ -33,12 +35,11 @@ export default function NewTask({setShowNewTask}) {
     }),
   }
 
-  function handleNewTask() {
-    if(text && category) {
-      setShowNewTask(false);
-      newTask(text, category).then(response => {
-        const { data } = response;
-        setTasks(old => [...old, data]);
+  function handleNewCategory() {
+    if(label && iconPath.value) {
+      newCategory(label, iconPath.value).then(newCategory => {
+        newCategory && setCategories(old => [...old, newCategory]);
+        setShowNewCategory(false);
       });
     }
   }
@@ -47,26 +48,25 @@ export default function NewTask({setShowNewTask}) {
     <NewTaskWrapper className="animationRight">
       <input
         type="text"
-        value={text}
-        onChange={e => setText(e.target.value)}
+        value={label}
+        onChange={e => setLabel(e.target.value)}
         autoFocus
-        placeholder="Task"
+        placeholder="Categoria"
       />
       <CustomSelect
-        options={categories}
+        options={icons}
         isSearchable={false}
-        placeholder="Categoria"
+        placeholder="ícone"
         styles={customStyles}
-        value={category}
-        onChange={setCategory}
+        value={iconPath}
+        onChange={setIconPath}
         getOptionLabel={option => (
           <div className='option'>
-            <img src={`${baseUrl}${option.iconPath}`} alt={option.label} />
-            <span>{option.label}</span>
+            <img src={`${baseUrl}${option.value}`} alt={option.value} />
           </div>
         )}
       />
-      <button onClick={handleNewTask}>
+      <button className="add" onClick={handleNewCategory}>
         <AddToQueue size={30} />
       </button>
     </NewTaskWrapper>

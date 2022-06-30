@@ -4,14 +4,6 @@ export const MainContent = styled.section`
   display: flex;
   flex-direction: column;
   width: 100%;
-
-  button {
-    transition: 0.5s;
-  }
-
-  button:hover {
-    background: var(--pink);
-  }
 `;
 
 export const RowBetween = styled.div`
@@ -32,7 +24,7 @@ export const DefaultWrapper = styled.section`
 `
 
 export const Button = styled.button`
-  background-color: ${props => props.color || 'var(--pink)'};
+  background-color: ${props => props.color || 'var(--purple)'};
   padding: 0.5rem;
   font-weight: bold;
   font-size: 1.1rem;
@@ -40,6 +32,11 @@ export const Button = styled.button`
   justify-content: center;
   align-items: center;
   border: 2px solid var(--white);
+  transition: 0.5s;
+
+  &:hover {
+    background-color: var(--pink);
+  }
 
   svg {
     margin-right: 0.5rem;

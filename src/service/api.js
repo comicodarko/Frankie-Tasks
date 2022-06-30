@@ -11,6 +11,30 @@ export async function getCategories() {
   return categories.data;
 }
 
+export async function newCategory(label, iconPath) {
+  return axios.post('/categories', { label, iconPath }).then((response => {
+    return response.data.newCategory;
+  })).catch(err => {
+    alert('Categoria já existe!');
+  });
+}
+
+export async function deleteCategory(id) {
+  return axios.delete(`/categories/${id}`).then(response => {
+    return true;
+  }).catch(err => {
+    if(err.response.status === 404) {
+      alert('Categoria não existe');
+    }
+    return false;
+  });
+}
+
+export async function getCategoryIcons() {
+  let categories = await axios.get('/categoryIcons');
+  return categories.data;
+}
+
 export async function getTasks() {
   const tasks = await axios.get('/tasks');
   tasks.data.forEach(task => delete task.__v); 
@@ -18,7 +42,7 @@ export async function getTasks() {
 }
 
 export async function newTask(label, category) {
-  const response = await axios.post('/tasks', { label, category});
+  const response = await axios.post('/tasks', { label, category });
   return response.data;
 }
 

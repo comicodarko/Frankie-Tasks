@@ -6,9 +6,9 @@ export const NewTaskWrapper = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
-  margin-left: 1rem;
   border-radius: 0.5rem;
   padding: 10px;
+  z-index: 1;
 
   @media(max-width: 700px) {
     margin-left: 0;
@@ -26,16 +26,19 @@ export const NewTaskWrapper = styled.div`
     }
   }
 
-  > button {
+  > button.add {
     border-radius: 5px;
     border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-    background: var(--pink);
-    width: 5rem;
-    min-height: 2.375rem;
-    border: 3px solid var(--purple);
+    border: 2px solid var(--purple);
     border-left: 0;
+    border-bottom-left-radius: 0;
     background: var(--purple);
+    margin-left: 0px;
+    transition: 0.5s;
+
+    &:hover {
+      background: var(--pink);
+    }
 
     @media(max-width: 700px) {
       width: 3rem;
@@ -53,12 +56,14 @@ export const CustomSelect = styled(Select)`
   }
 
   div {
+    cursor: pointer;
     padding: 0.05rem;
   }
 
   div.option {
     display: flex;
     align-items: center;
+    justify-content: center;
     width: 100%;
     transition: 0.2s;
     cursor: pointer;
