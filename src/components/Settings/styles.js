@@ -11,10 +11,18 @@ export const ConfigCategory = styled.div`
   display: flex;
   flex-direction: column;
 
+  @media(max-width: 800px) { width: 48%;}
+  @media(max-width: 550px) { width: 90%;}
+
   header {
     display: flex;
-    align-items: center;
     margin-bottom: 1rem;
+    
+    div.title {
+      align-items: center;
+      display: flex;
+      width: 100%;
+    }
     
     h3 {
       border-bottom: 2px solid var(--pink);

@@ -18,7 +18,7 @@ export default function AppPage() {
 
       <MainContent>
         <Header />
-        {selectedMenu === 'Settings'
+        {selectedMenu === 'Configurações'
           ? <Settings />
           : 
           <>

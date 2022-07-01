@@ -29,3 +29,10 @@ export const MenuCategory = styled.button`
       color: ${props => props.active ? 'var(--pink)' : 'var(--purple)'};
     }
 `
+
+export const CategoriesEmpty = styled.span`
+  cursor: pointer;
+  text-align: center;
+  color: var(--purple);
+  margin: 1rem 0;
+`

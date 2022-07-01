@@ -3,10 +3,8 @@ import MenuItem from './MenuItem';
 import { MenuWrapper } from './styles';
 import { GlobalContext } from '../../Context';
 
-import DashboardIcon from '../../assets/menu-icons/dashboard.png';
-import DashboardActiveIcon from '../../assets/menu-icons/dashboard-active.png';
-import SettingsIcon from '../../assets/menu-icons/configuration.png';
-import SettingsActiveIcon from '../../assets/menu-icons/configuration-active.png';
+import TasksIcon from '../../assets/menu-icons/tasks.png';
+import SettingsIcon from '../../assets/menu-icons/settings.png';
 import Categories from './Categories';
 
 export default function Menu() {
@@ -20,18 +18,16 @@ export default function Menu() {
 
       <nav>
         <MenuItem
-          icon={DashboardIcon}
-          activeIcon={DashboardActiveIcon}
-          label="Dashboard"
-          active={selectedMenu === 'Dashboard'}
-          handleChangeMenu={() => setSelectedMenu('Dashboard')}
+          icon={TasksIcon}
+          label="Tasks"
+          active={selectedMenu === 'Tasks'}
+          handleChangeMenu={() => setSelectedMenu('Tasks')}
         />
         <MenuItem
           icon={SettingsIcon}
-          activeIcon={SettingsActiveIcon}
-          label="Configuração"
-          active={selectedMenu === 'Settings'}
-          handleChangeMenu={() => setSelectedMenu('Settings')}
+          label="Configurações"
+          active={selectedMenu === 'Configurações'}
+          handleChangeMenu={() => setSelectedMenu('Configurações')}
         />
       </nav>
 

@@ -39,12 +39,12 @@ export default function Settings() {
         <header>
           {showNewCategory 
             ? <NewCategory setShowNewCategory={setShowNewCategory} iconPaths={iconPaths} />
-            : <>
+            : <div className="title animationLeft">
                 <h3>Categorias</h3>
                 <Button onClick={() => setShowNewCategory(true)}>
                   <MessageAltAdd size={30} />
                 </Button>
-              </>
+              </div>
           }
         </header>
         <div className='content'>

@@ -18,6 +18,7 @@ export const MenuItemWrapper = styled.button`
   img {
     margin-right: 1rem;
     width: 2rem;
-    transition: 1s;
+    transition: 0.5s;
+    filter: ${props => (props.active ? 'none' : 'grayscale(100%)')};
   }
 `;
