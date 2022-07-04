@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const MenuWrapper = styled.nav`
+export const MenuWrapper = styled.aside`
   display: flex;
   flex-direction: column;
   background: var(--white);
@@ -21,6 +21,10 @@ export const MenuWrapper = styled.nav`
       color: var(--pink);
     }
   }
+
+  /* nav {
+    height: 100%;
+  } */
 
   footer {
     color: var(--blueDark);

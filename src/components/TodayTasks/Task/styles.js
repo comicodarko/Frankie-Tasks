@@ -18,6 +18,7 @@ export const TaskWrapper = styled.span`
 
   > div {
     display: flex;
+    align-items: center;
 
     h3 {
       font-size: 1rem;
@@ -32,11 +33,11 @@ export const TaskWrapper = styled.span`
       color: ${props => (props.checked ? 'var(--gray)' : 'var(--pink)')};
     }
 
-    img {
+    > img {
       padding: 0.5rem;
       border: 2px solid var(--black);
       border-radius: 1rem;
-      margin-right: 1rem;
+      margin-right: 0.5rem;
       width: 50px;
       height: 50px;
       filter: ${props => (props.checked ? 'grayscale(100%)' : 'none')};

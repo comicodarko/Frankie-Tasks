@@ -8,6 +8,7 @@ export const NewTaskWrapper = styled.div`
   display: flex;
   margin-left: 1rem;
   border-radius: 0.5rem;
+  z-index: 1;
   padding: 10px;
 
   @media(max-width: 700px) {

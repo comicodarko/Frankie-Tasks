@@ -15,23 +15,20 @@ export default function Menu() {
       <h1>
         🤖 Frankie<span>.</span>
       </h1>
-
-      <nav>
-        <MenuItem
-          icon={TasksIcon}
-          label="Tasks"
-          active={selectedMenu === 'Tasks'}
-          handleChangeMenu={() => setSelectedMenu('Tasks')}
-        />
-        <MenuItem
-          icon={SettingsIcon}
-          label="Configurações"
-          active={selectedMenu === 'Configurações'}
-          handleChangeMenu={() => setSelectedMenu('Configurações')}
-        />
-      </nav>
-
+      
+      <MenuItem
+        icon={TasksIcon}
+        label="Tasks"
+        active={selectedMenu === 'Tasks'}
+        handleChangeMenu={() => setSelectedMenu('Tasks')}
+      />
       <Categories />
+      <MenuItem
+        icon={SettingsIcon}
+        label="Configurações"
+        active={selectedMenu === 'Configurações'}
+        handleChangeMenu={() => setSelectedMenu('Configurações')}
+      />
 
       <footer>
         Developed by <a href="https://github.com/comicodarko"> Cômico</a>

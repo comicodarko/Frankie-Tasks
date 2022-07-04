@@ -9,7 +9,7 @@ export default function GlobalProvider({ children }) {
   const [checkedTasks, setCheckedTasks] = useState([]);
   const [uncheckedTasks, setUncheckedTasks] = useState([]);
   const [statusToShow, setStatusToShow] = useState('');
-  const [selectedMenu, setSelectedMenu] = useState('Dashboard');
+  const [selectedMenu, setSelectedMenu] = useState('Tasks');
 
   async function fetchData() {
     setCategories(await getCategories());

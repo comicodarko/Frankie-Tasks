@@ -1,18 +1,24 @@
+import { useState } from 'react';
 import { baseUrl } from '../../../service/api';
 import { TaskWrapper } from './styles';
+import { useLongPress } from 'use-long-press';
 
 export default function Task({ id, label, category, checked, handleChecked }) {
+  const bind = useLongPress(() => {
+    // ...
+  },
+  { onCancel: () => handleChecked(id) });
+
   return (
-    <TaskWrapper
+    <TaskWrapper {...bind()}
       className="animationRight"
-      onClick={() => handleChecked(id)}
       checked={checked}
     >
       <div>
         <img src={`${baseUrl}${category.iconPath}`} alt={category.label} />
         <div>
-          <h3>- {label} -</h3>
-          <h4>{category.label}</h4>
+          <h3>&nbsp;&nbsp;{label}&nbsp;&nbsp;</h3>
+          <h4>&nbsp;&nbsp;&nbsp;{category.label}</h4>
         </div>
       </div>
 
