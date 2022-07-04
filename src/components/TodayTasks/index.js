@@ -8,7 +8,7 @@ import { GlobalContext } from '../../Context';
 import { updateTask } from '../../service/api';
 
 export default function TodayTasks() {
-  const { tasks, setTasks, checkedTasks, uncheckedTasks, statusToShow } =
+  const { categories, tasks, setTasks, checkedTasks, uncheckedTasks, statusToShow, selectedMenu } =
     useContext(GlobalContext);
   const [selectedTasks, setSelectedTasks] = useState(uncheckedTasks);
 
@@ -31,23 +31,30 @@ export default function TodayTasks() {
   }
 
   function handleChange() {
-    const selected =
-      statusToShow === 'unchecked'
-        ? uncheckedTasks
-        : statusToShow === 'checked'
-        ? checkedTasks
-        : tasks;
+    let filteredTasks = [];
+    if(categories.some(category => category.label === selectedMenu)) {
+      filteredTasks = tasks.filter(task => task.category.label === selectedMenu);
+      if(statusToShow ==='unchecked') {
+        filteredTasks = filteredTasks.filter(task => !task.checked);
+      } else if(statusToShow === 'checked'){
+        filteredTasks = filteredTasks.filter(task => task.checked);
+      }
+    } else {
+      switch(statusToShow) {
+        case 'unchecked': filteredTasks = uncheckedTasks;
+        break
+        case 'checked': filteredTasks = checkedTasks;
+        break
+        default: filteredTasks = tasks 
+      }
+    }
 
-    setSelectedTasks(selected.sort(task => task.checked));
+    setSelectedTasks(filteredTasks.sort(task => task.checked));
   }
 
   useEffect(() => {
     handleChange();
-  }, [statusToShow]);
-
-  useEffect(() => {
-    handleChange();
-  }, [uncheckedTasks, checkedTasks]);
+  }, [statusToShow, uncheckedTasks, checkedTasks, selectedMenu]);
 
   useEffect(() => {
     handleChange();

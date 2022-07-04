@@ -10,7 +10,7 @@ import { GlobalContext } from '../../Context';
 import Settings from '../Settings';
 
 export default function AppPage() {
-  const { checkedTasks, uncheckedTasks, selectedMenu } = useContext(GlobalContext);
+  const { checkedTasks, uncheckedTasks, selectedMenu, categories } = useContext(GlobalContext);
 
   return (
     <AppWrapper>
@@ -20,13 +20,13 @@ export default function AppPage() {
         <Header />
         {selectedMenu === 'Configurações'
           ? <Settings />
-          : 
-          <>
-            <TaskOverview
-              completed={checkedTasks.length}
-              inProgress={uncheckedTasks.length}
+          : categories.some(category => category.label === selectedMenu) 
+          ? <TodayTasks />
+          : <>
+              <TaskOverview
+                completed={checkedTasks.length}
+                inProgress={uncheckedTasks.length}
             />
-
             <TodayTasks />
           </>
         }
