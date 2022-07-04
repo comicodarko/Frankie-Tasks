@@ -22,7 +22,7 @@ const { categories, selectedMenu, setSelectedMenu } = useContext(GlobalContext);
             </MenuCategory>
           )
         })
-        : <CategoriesEmpty onClick={() => setSelectedMenu('Settings')}>Sem Categorias Existentes</CategoriesEmpty>
+        : <CategoriesEmpty onClick={() => setSelectedMenu('Configurações')}>Sem Categorias</CategoriesEmpty>
       }
     </CategoriesWrapper>
   )

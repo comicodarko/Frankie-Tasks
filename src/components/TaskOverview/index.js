@@ -10,14 +10,14 @@ export default function TaskOverview({ completed, inProgress }) {
       <TaskOverviewContent
         amount={completed}
         all={all}
-        label="Completadas"
+        label={completed !== 1 ? 'Completadas' : 'Completada'}
         Icon={() => <Task size={30} />}
         type="checked"
       />
       <TaskOverviewContent
         amount={inProgress}
         all={all}
-        label="A ser feito"
+        label={inProgress !== 1 ? 'A serem feitas' : 'A ser feito'}
         Icon={() => <TaskX size={30} />}
         type="unchecked"
       />

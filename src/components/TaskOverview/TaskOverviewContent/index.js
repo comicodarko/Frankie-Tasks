@@ -15,7 +15,7 @@ export default function TaskOverviewContent({ amount, all, label, Icon, type }) 
           <Icon />
         </span>
         <div>
-          <h3>{amount} Tasks</h3>
+          <h3>{amount} Task{amount !== 1 && 's'}</h3>
           <span className="type">{label}</span>
         </div>
       </section>

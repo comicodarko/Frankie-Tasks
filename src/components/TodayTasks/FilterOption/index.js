@@ -1,6 +1,6 @@
-import { MoreOptionWrapper } from './styled';
+import { FilterOptionWrapper } from './styled';
 
-export default function MoreOption({ label, checked, setCheck }) {
+export default function FilterOption({ label, checked, setCheck }) {
   const value = {
     Todos: 'all',
     'Não concluídos': 'unchecked',
@@ -8,7 +8,7 @@ export default function MoreOption({ label, checked, setCheck }) {
   };
 
   return (
-    <MoreOptionWrapper onClick={() => setCheck(value[label])}>
+    <FilterOptionWrapper onClick={() => setCheck(value[label])}>
       <div className="pretty p-default p-curve p-smooth">
         <input type="checkbox" checked={checked} readOnly />
         <div className="state p-info">
@@ -17,6 +17,6 @@ export default function MoreOption({ label, checked, setCheck }) {
         </div>
       </div>
       {label}
-    </MoreOptionWrapper>
+    </FilterOptionWrapper>
   );
 }

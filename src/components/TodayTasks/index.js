@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
 
 import Task from './Task';
-import More from './More';
+import More from './Filter';
 import { TodayTaskHeader, TodayTasksBody } from './styles';
 import { DefaultWrapper } from '../Defaults';
 import { GlobalContext } from '../../Context';
@@ -63,9 +63,6 @@ export default function TodayTasks() {
   return (
     <DefaultWrapper>
       <TodayTaskHeader>
-        <h2>Tasks {statusToShow === 'unchecked'
-        ? 'a serem feitas'
-        : statusToShow === 'checked' && 'concluídas'} </h2>
         <More />
       </TodayTaskHeader>
       <TodayTasksBody>

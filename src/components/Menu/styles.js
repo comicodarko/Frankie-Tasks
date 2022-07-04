@@ -9,7 +9,7 @@ export const MenuWrapper = styled.aside`
   padding: 1rem;
   margin: 1rem;
 
-  @media(max-width: 750px) {
+  @media(max-width: 800px) {
     display: none;
   }
 

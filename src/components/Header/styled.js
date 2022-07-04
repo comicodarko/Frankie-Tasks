@@ -2,9 +2,9 @@ import styled from 'styled-components';
 
 export const HeaderWrapper = styled.div`
   display: flex;
-  align-items: center;
   justify-content: space-between;
   margin: 1rem;
+  margin-bottom: 0rem;
   min-height: 3.5rem;
   max-width: 100%;
   
@@ -22,5 +22,9 @@ export const HeaderWrapper = styled.div`
     align-items: center;
     justify-content: center;
     height: 3.5rem;
+  }
+
+  > button {
+    margin-bottom: auto;
   }
 `;
