@@ -23,9 +23,7 @@ export default function TaskOverviewContent({ amount, all, label, Icon, type }) 
         <CircularProgressbarWithChildren
           value={amount}
           maxValue={all}
-          styles={buildStyles({
-            pathColor: '#ff80bf'
-          })}
+          styles={buildStyles({ pathColor: '#ff80bf' })}
           strokeWidth={10}
         >
           <span>{percent}%</span>

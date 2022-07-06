@@ -1,8 +1,8 @@
+import * as dotenv from 'dotenv';
+dotenv.config();
 import axios from 'axios';
 
-export const baseUrl = 'http://localhost:4000';
-// export const baseUrl = 'http://192.168.0.105:1337';
-
+export const baseUrl = process.env.API_IP || 'http://localhost:4000';
 axios.defaults.baseURL = baseUrl;
 
 export async function getCategories() {
@@ -20,7 +20,7 @@ export async function newCategory(label, iconPath) {
 }
 
 export async function deleteCategory(id) {
-  return axios.delete(`/categories/${id}`).then(response => {
+  return axios.delete(`/categories/${id}`).then(() => {
     return true;
   }).catch(err => {
     if(err.response.status === 404) {

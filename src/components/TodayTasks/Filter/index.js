@@ -16,6 +16,7 @@ export default function Filter() {
     <FilterWrapper>
       {options.map(option => 
         <FilterOption 
+          key={option.value}
           label={option.label} 
           checked={statusToShow === option.value} 
           setCheck={setStatusToShow} 
