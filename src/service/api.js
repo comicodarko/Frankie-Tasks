@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export const baseUrl = process.env.API_IP || 'http://localhost:4000';
+export const baseUrl = process.env.REACT_APP_API_URL;
 axios.defaults.baseURL = baseUrl;
 
 export async function getCategories() {
