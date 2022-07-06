@@ -1,5 +1,3 @@
-import * as dotenv from 'dotenv';
-dotenv.config();
 import axios from 'axios';
 
 export const baseUrl = process.env.API_IP || 'http://localhost:4000';
