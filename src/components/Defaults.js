@@ -15,12 +15,13 @@ export const RowBetween = styled.div`
 export const DefaultWrapper = styled.section`
   padding: 1rem;
   margin: 1rem;
-  flex: 1;
   border-radius: 1.5rem;
   background: var(--blueDark);
   display: flex;
+  flex: 1;
   flex-direction: column;
   overflow-y: hidden;
+  min-height: 10rem;
 `
 
 export const Button = styled.button`

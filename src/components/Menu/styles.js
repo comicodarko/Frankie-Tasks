@@ -4,10 +4,11 @@ export const MenuWrapper = styled.aside`
   display: flex;
   flex-direction: column;
   background: var(--white);
+  border: 2px solid var(--pink);
   height: calc(100% - 2rem);
   border-radius: 1.5rem;
   padding: 1rem;
-  margin: 1rem;
+  margin: 1rem; 
 
   @media(max-width: 800px) {
     display: none;

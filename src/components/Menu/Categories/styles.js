@@ -2,11 +2,13 @@ import styled from "styled-components";
 
 export const CategoriesWrapper = styled.nav`
   background: var(--blueDark);
-  padding: 0 0.5rem;
+  padding: 0.25rem 0.5rem;
   display: flex;
+  justify-content: center;
   border-radius: 0.5rem;
   flex-direction: column;
-  margin-bottom: auto;
+  margin-bottom: 1rem;
+  min-height: 5rem;
   overflow-y: auto;
 `
 
