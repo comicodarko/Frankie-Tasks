@@ -4,8 +4,8 @@ import { GlobalContext } from '../../../Context';
 import { baseUrl } from '../../../service/api';
 import { CategoriesEmpty, CategoriesWrapper, MenuCategory } from "./styles";
 
-export default function Categories() {
-const { categories, selectedMenu, setSelectedMenu } = useContext(GlobalContext);
+export default function Categories({ handleChangeMenu }) {
+const { categories, selectedMenu } = useContext(GlobalContext);
 
   return (
     <CategoriesWrapper className="animationLeft">
@@ -15,14 +15,16 @@ const { categories, selectedMenu, setSelectedMenu } = useContext(GlobalContext);
             <MenuCategory 
               key={category._id}
               active={selectedMenu === category.label}
-              onClick={() => setSelectedMenu(category.label)}
+              onClick={() => handleChangeMenu(category.label)}
             >
               <img src={`${baseUrl}${category.iconPath}`} alt={category.label} />
               {category.label}
             </MenuCategory>
           )
         })
-        : <CategoriesEmpty onClick={() => setSelectedMenu('Configurações')}>Sem Categorias</CategoriesEmpty>
+        : <CategoriesEmpty onClick={() => handleChangeMenu('Configurações')}>
+            Sem Categorias
+          </CategoriesEmpty>
       }
     </CategoriesWrapper>
   )

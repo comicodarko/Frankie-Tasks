@@ -29,8 +29,13 @@ export const TaskWrapper = styled.span`
 
     h4 {
       margin-top: 0.2rem;
+      margin-left: 0.75rem;
       font-size: 0.7rem;
       color: ${props => (props.checked ? 'var(--gray)' : 'var(--pink)')};
+    
+      &:hover {
+        text-decoration: underline;
+      }
     }
 
     > img {

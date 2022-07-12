@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { ChevronDoubleUp } from '@styled-icons/fluentui-system-filled';
 
 export const AppWrapper = styled.main`
   display: flex;
@@ -15,3 +16,19 @@ export const AppWrapper = styled.main`
     border-radius: 1.5rem;
   }
 `;
+
+export const MobileMenuIcon = styled(ChevronDoubleUp)`
+  display: none;
+  z-index: 1;
+  position: absolute;
+  fill: var(--pink);
+  bottom: 1rem;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  margin-left: auto;
+
+  @media (max-width: 800px){
+    display: flex;
+  }
+`

@@ -12,12 +12,10 @@ export const FilterWrapper = styled.div`
   width: 100%;
 
   @media(max-width: 500px) {
-    align-items: flex-start;
     font-size: 0.9rem;
   }
   
   @media(max-width: 450px) {
-    justify-content: flex-start;
     font-size: 0.8rem;
   }
 `;

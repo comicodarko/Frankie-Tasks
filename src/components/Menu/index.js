@@ -8,11 +8,16 @@ import SettingsIcon from '../../assets/menu-icons/settings.png';
 import Categories from './Categories';
 import Movies from './Movies';
 
-export default function Menu() {
+export default function Menu({isMobile, setMenuIsVisible}) {
   const { selectedMenu, setSelectedMenu, letterboxd } = useContext(GlobalContext); 
 
+  function handleChangeMenu(selected) {
+    setSelectedMenu(selected);
+    setMenuIsVisible(false);
+  }
+
   return (
-    <MenuWrapper className="animationLeft">
+    <MenuWrapper className="animationLeft" isMobile={isMobile}>
       <h1>
         🤖 Frankie<span>.</span>
       </h1>
@@ -21,10 +26,10 @@ export default function Menu() {
         icon={TasksIcon}
         label="Tasks"
         active={selectedMenu === 'Tasks'}
-        handleChangeMenu={() => setSelectedMenu('Tasks')}
+        handleChangeMenu={() => {handleChangeMenu('Tasks')}}
       />
 
-      <Categories />
+      <Categories handleChangeMenu={handleChangeMenu} />
       
       {letterboxd.movies &&
         letterboxd.movies.length > 0 && <Movies />
@@ -33,7 +38,7 @@ export default function Menu() {
         icon={SettingsIcon}
         label="Configurações"
         active={selectedMenu === 'Configurações'}
-        handleChangeMenu={() => setSelectedMenu('Configurações')}
+        handleChangeMenu={() => handleChangeMenu('Configurações')}
       />
       
 

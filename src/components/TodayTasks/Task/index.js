@@ -1,16 +1,15 @@
-import { useState } from 'react';
+import { useContext } from 'react';
+
+import { GlobalContext } from '../../../Context';
 import { baseUrl } from '../../../service/api';
 import { TaskWrapper } from './styles';
-import { useLongPress } from 'use-long-press';
 
 export default function Task({ id, label, category, checked, handleChecked }) {
-  const bind = useLongPress(() => {
-    // ...
-  },
-  { onCancel: () => handleChecked(id) });
+  const { setSelectedMenu } = useContext(GlobalContext);
 
   return (
-    <TaskWrapper {...bind()}
+    <TaskWrapper 
+      onClick={(e) => {e.stopPropagation(); handleChecked(id);}}
       className="animationRight"
       checked={checked}
     >
@@ -18,7 +17,9 @@ export default function Task({ id, label, category, checked, handleChecked }) {
         <img src={`${baseUrl}${category.iconPath}`} alt={category.label} />
         <div>
           <h3>&nbsp;&nbsp;{label}&nbsp;&nbsp;</h3>
-          <h4>&nbsp;&nbsp;&nbsp;{category.label}</h4>
+          <h4 onClick={() => setSelectedMenu(category.label)}>
+            {category.label}
+          </h4>
         </div>
       </div>
 

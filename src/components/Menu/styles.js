@@ -10,8 +10,9 @@ export const MenuWrapper = styled.aside`
   padding: 1rem;
   margin: 1rem; 
 
-  @media(max-width: 800px) {
-    display: none;
+  @media (max-width: 800px){
+    display: ${props => props.isMobile ? 'flex' : 'none'};
+    width: calc(100% - 3rem);
   }
 
   h1 {
@@ -22,10 +23,6 @@ export const MenuWrapper = styled.aside`
       color: var(--pink);
     }
   }
-
-  /* nav {
-    height: 100%;
-  } */
 
   footer {
     color: var(--blueDark);

@@ -7,17 +7,13 @@ export const FilterOptionWrapper = styled.span`
   cursor: pointer;
   padding: 1rem 0;
 
-  @media(max-width: 700px) {
-    padding: 0.5rem 0;
-  }
-
   div {
     margin-right: -1rem;
     margin-left: 2rem;
     
     @media(max-width: 700px) {
-      margin-right: -0.5rem;
-      margin-left: 1rem;
+      margin-right: 0;
+      margin-left: 5px;
     }
   }
 `;

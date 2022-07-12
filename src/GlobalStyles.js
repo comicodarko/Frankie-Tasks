@@ -23,7 +23,7 @@ export const GlobalStyle = createGlobalStyle`
   }
   
   html {
-    overflow-x: hidden;
+    overflow: hidden;
   }
 
   body {
@@ -90,6 +90,22 @@ export const GlobalStyle = createGlobalStyle`
   .animationShow {
     opacity: 0;
     animation: animationShow 0.5s forwards; 
+  }
+
+  .animationPulsate {
+    animation: animationPulsate 1.5s ease-in-out infinite both;
+  }
+
+  @keyframes animationPulsate {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.2);
+    }
+    100% {
+      transform: scale(1);
+    }
   }
 
   @keyframes animationShow {

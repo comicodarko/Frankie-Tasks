@@ -8,8 +8,8 @@ export default function LetterboxdSettings() {
   
   return (
     <div>
-      <h3>Letterboxd</h3>
-      <LetterboxdRow>
+      <h3 className="animationLeft">Letterboxd</h3>
+      <LetterboxdRow className="animationUp">
 
         <input 
           value={letterboxd.user} 

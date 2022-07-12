@@ -6,10 +6,11 @@ export default function Settings() {
 
   return (
     <ConfigWrapper className='animationShow'>
-      <CategoriesStings />
       
-      <LetterboxdSettings />
+      <CategoriesStings />
 
+      <LetterboxdSettings />
+   
     </ConfigWrapper>
   )
 }

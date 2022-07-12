@@ -12,7 +12,7 @@ export default function GlobalProvider({ children }) {
   const [statusToShow, setStatusToShow] = useState('');
   const [selectedMenu, setSelectedMenu] = useState('Tasks');
   const [letterboxd, setLetterboxd] = useState({
-    user: false,
+    user: '',
     enabled: false,
     movies: []
   });
