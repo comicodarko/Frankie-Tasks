@@ -6,10 +6,13 @@ export const MainContent = styled.section`
   width: 100%;
 `;
 
-export const RowBetween = styled.div`
+export const Row = styled.div`
   display: flex;
-  justify-content: space-between;
   align-items: center;
+`
+
+export const RowBetween = styled(Row)`
+  justify-content: space-between;
 `;
 
 export const DefaultWrapper = styled.section`
@@ -37,9 +40,5 @@ export const Button = styled.button`
 
   &:hover {
     background-color: var(--pink);
-  }
-
-  svg {
-    margin-right: 0.5rem;
   }
 `;

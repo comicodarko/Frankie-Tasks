@@ -10,10 +10,9 @@ import Movies from './Movies';
 
 export default function Menu({isMobile, setMenuIsVisible}) {
   const { selectedMenu, setSelectedMenu, letterboxd } = useContext(GlobalContext); 
-
   function handleChangeMenu(selected) {
     setSelectedMenu(selected);
-    setMenuIsVisible(false);
+    isMobile && setMenuIsVisible(false);
   }
 
   return (
@@ -32,7 +31,8 @@ export default function Menu({isMobile, setMenuIsVisible}) {
       <Categories handleChangeMenu={handleChangeMenu} />
       
       {letterboxd.movies &&
-        letterboxd.movies.length > 0 && <Movies />
+        letterboxd.movies.length > 0 && 
+        letterboxd.enabled && <Movies />
       }
       <MenuItem
         icon={SettingsIcon}
@@ -40,7 +40,6 @@ export default function Menu({isMobile, setMenuIsVisible}) {
         active={selectedMenu === 'Configurações'}
         handleChangeMenu={() => handleChangeMenu('Configurações')}
       />
-      
 
       <footer>
         Developed by <a href="https://github.com/comicodarko"> Cômico</a>

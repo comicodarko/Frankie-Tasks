@@ -1,6 +1,7 @@
 
 import { useState, createContext, useEffect } from 'react';
-import { getCategories, getLetterboxdDiary, getTasks } from './service/api';
+import { getCategories, getTasks } from './service/api';
+import { getLetterboxdDiary } from './service/letterboxd';
 
 export const GlobalContext = createContext({});
 

@@ -18,7 +18,7 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Gemunu Libre', sans-serif;
+    font-family: 'Fira Sans', sans-serif;
     color: var(--white);
   }
   
@@ -40,11 +40,8 @@ export const GlobalStyle = createGlobalStyle`
     background-color: #111;
   }
 
-  input, select {
+  input {
     padding: 5px;
-    display: flex;
-    min-width: 20%;
-    max-width: 80%;
     border: 3px solid var(--purple);
     border-radius: 5px;
     outline: none;

@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
 export const CategoriesWrapper = styled.nav`
-  background: var(--blueDark);
-  padding: 0.25rem 0.5rem;
+  /* background: var(--blueDark); */
+  border-top: 2px solid var(--pink);
+  padding-top: 0.5rem;
   display: flex;
   justify-content: center;
-  border-radius: 0.5rem;
   flex-direction: column;
   margin-bottom: 1rem;
   min-height: 5rem;
@@ -13,20 +13,20 @@ export const CategoriesWrapper = styled.nav`
 `
 
 export const MenuCategory = styled.button`
-    display: flex;
-    align-items: center;
-    margin: 0;
-    padding: 0.25rem 0;
-    color: ${props => props.active ? 'var(--pink)' : 'var(--white)'};
-    
-    img {
-      margin-right: 1rem;
-      width: 2rem;
-    }
+  display: flex;
+  align-items: center;
+  padding: 0.25rem 0;
+  color: ${props => props.active ? 'var(--pink)' : 'var(--black)'};
+  font-weight: bold;
+  
+  img {
+    margin-right: 1rem;
+    width: 2rem;
+  }
 
-    &:hover {
-      color: ${props => props.active ? 'var(--pink)' : 'var(--purple)'};
-    }
+  &:hover {
+    color: ${props => props.active ? 'var(--pink)' : 'var(--purple)'};
+  }
 `
 
 export const CategoriesEmpty = styled.span`

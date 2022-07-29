@@ -1,21 +1,15 @@
 import styled from 'styled-components';
 import Select from 'react-select';
+import { Button, RowBetween } from '../../Defaults';
 
 export const NewTaskWrapper = styled.div`
-  background: var(--blueDark);
   width: 100%;
   height: 100%;
   display: flex;
-  margin-left: 1rem;
   border-radius: 0.5rem;
-  z-index: 1;
-  padding: 10px;
-
-  @media(max-width: 700px) {
-    margin-left: 0;
-  }
   
   > input {
+    margin-bottom: 1rem;
     border-right-width: 0;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
@@ -26,33 +20,17 @@ export const NewTaskWrapper = styled.div`
       border-color: var(--purple);
     }
   }
-
-  > button {
-    border-radius: 5px;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-    background: var(--pink);
-    width: 5rem;
-    min-height: 2.375rem;
-    border: 3px solid var(--purple);
-    border-left: 0;
-    background: var(--purple);
-
-    @media(max-width: 700px) {
-      width: 3rem;
-    }
-  }
 `;
 
 export const CustomSelect = styled(Select)`
-  border-top: 3px solid var(--purple);
-  border-bottom: 3px solid var(--purple);
-  width: 30%;
-
-  @media(max-width: 700px) {
-    width: 35%
-  }
-
+  border: 3px solid var(--purple);
+  border-left: 0;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  margin-bottom: 1rem;
+  min-width: 7rem;
+  flex: 1;
+  
   div {
     padding: 0.05rem;
   }
@@ -78,3 +56,14 @@ export const CustomSelect = styled(Select)`
     }
   }
 `;
+
+export const NewTaskButton = styled(Button)`
+  display: flex;
+  margin-left: auto;
+  margin-top: 1rem;
+`
+
+export const NewTaskDates = styled(RowBetween)`
+  display: ${props => props.show ? 'flex' : 'none'};
+  margin-top: 1rem;
+`

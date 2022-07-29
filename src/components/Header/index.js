@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 import { TaskListSquareAdd } from '@styled-icons/fluentui-system-filled';
 
 import { GlobalContext } from '../../Context';
@@ -10,22 +10,16 @@ export default function Header() {
   const [showNewTask, setShowNewTask] = useState(false);
   const { selectedMenu } = useContext(GlobalContext);
 
-  useEffect(() => {
-    document.addEventListener('keydown', event => {
-      event.key === 'Escape' && setShowNewTask(false);
-    });
-  }, []);
-
   return (
     <HeaderWrapper>
+      <NewTask 
+        isVisible={showNewTask}
+        setIsVisible={setShowNewTask}
+      />
       <h1>{selectedMenu}</h1>
-      {showNewTask ? (
-        <NewTask setShowNewTask={setShowNewTask} />
-      ) : (
-          <Button className="animationRight" onClick={() => setShowNewTask(true)}>
-            <TaskListSquareAdd size={25} /> Nova Task
-          </Button>
-      )}
+      <Button className="animationRight" onClick={() => setShowNewTask(true)}>
+        <TaskListSquareAdd size={25} /> Nova Task
+      </Button>
     </HeaderWrapper>
   );
 }

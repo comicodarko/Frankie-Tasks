@@ -1,3 +1,4 @@
+import Checkbox from '../../Checkbox';
 import { FilterOptionWrapper } from './styled';
 
 export default function FilterOption({ label, checked, setCheck }) {
@@ -9,13 +10,7 @@ export default function FilterOption({ label, checked, setCheck }) {
 
   return (
     <FilterOptionWrapper onClick={() => setCheck(value[label])}>
-      <div className="pretty p-default p-curve p-smooth">
-        <input type="checkbox" checked={checked} readOnly />
-        <div className="state p-info">
-          <i className="icon mdi mdi-check"></i>
-          <label></label>
-        </div>
-      </div>
+      <Checkbox checked={checked} />
       {label}
     </FilterOptionWrapper>
   );
