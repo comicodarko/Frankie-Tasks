@@ -35,7 +35,15 @@ export async function getCategoryIcons() {
 
 export async function getTasks() {
   const tasks = await axios.get('/tasks');
-  tasks.data.forEach(task => delete task.__v); 
+  tasks.data.forEach(task => {
+    delete task.__v;
+
+    task.dates = {
+      initial: task.dates.initial ? new Date(task.dates.initial).toLocaleDateString() : null,
+      final: task.dates.final ? new Date(task.dates.final).toLocaleDateString() : null
+    }
+    console.log(task.dates);
+  }); 
   return tasks.data;
 }
 

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const TaskWrapper = styled.span`
   display: flex;
   padding: 0.5rem 0;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   align-items: center;
   cursor: pointer;
   transition: 0.1s;
@@ -46,6 +46,24 @@ export const TaskWrapper = styled.span`
       width: 50px;
       height: 50px;
       filter: ${props => (props.checked ? 'grayscale(100%)' : 'none')};
+    }
+  }
+
+  > div.infos {
+    margin-right: auto;
+  }
+
+  > div.dates {
+    flex-direction: column;
+    margin-right: 1rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+
+    span {
+      color: var(--blue);
+      &:last-child {
+        color: var(--pink);
+      }
     }
   }
 `;

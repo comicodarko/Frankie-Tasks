@@ -68,12 +68,7 @@ export default function TodayTasks() {
       <TodayTasksBody>
         {selectedTasks.map(task => {
           return (
-            <Task
-              key={task._id}
-              id={task._id}
-              label={task.label}
-              category={task.category}
-              checked={task.checked}
+            <Task key={task._id} task={task}
               handleChecked={() => toggleTask(task._id, !task.checked)}
             />
           );

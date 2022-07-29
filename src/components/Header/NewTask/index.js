@@ -44,7 +44,9 @@ export default function NewTask({isVisible, setIsVisible}) {
     if(text && category) {
       setIsVisible(false);
       newTask(text, category, initialDate, finalDate).then(response => {
-        const { data } = response;
+        let { data } = response;
+        data.dates.initial = new Date(data.dates.initial).toLocaleDateString();
+        data.dates.final = new Date(data.dates.final).toLocaleDateString();
         setTasks(old => [...old, data]);
         setText('');
         setCategory('');
